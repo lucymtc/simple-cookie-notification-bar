@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Cookie Notification Bar\n"
-"POT-Creation-Date: 2014-11-14 15:26+0100\n"
-"PO-Revision-Date: 2014-11-14 15:26+0100\n"
+"POT-Creation-Date: 2014-11-25 16:16+0100\n"
+"PO-Revision-Date: 2014-11-25 16:16+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -70,11 +70,31 @@ msgstr ""
 msgid "leave blank for no border"
 msgstr ""
 
-#: includes/view-admin.php:121
+#: includes/view-admin.php:122
 msgid "Font Size"
 msgstr ""
 
-#: includes/view-admin.php:133
+#: includes/view-admin.php:132
+msgid "Text Align"
+msgstr ""
+
+#: includes/view-admin.php:134
+msgid "center"
+msgstr ""
+
+#: includes/view-admin.php:135
+msgid "left"
+msgstr ""
+
+#: includes/view-admin.php:136
+msgid "right"
+msgstr ""
+
+#: includes/view-admin.php:137
+msgid "justify"
+msgstr ""
+
+#: includes/view-admin.php:147
 msgid "Save Options"
 msgstr ""
 
