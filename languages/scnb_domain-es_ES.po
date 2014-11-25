@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple Cookie Notification Bar\n"
-"POT-Creation-Date: 2014-11-14 15:26+0100\n"
-"PO-Revision-Date: 2014-11-14 15:30+0100\n"
+"POT-Creation-Date: 2014-11-25 16:17+0100\n"
+"PO-Revision-Date: 2014-11-25 16:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,7 +16,6 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: es\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: includes/view-admin.php:3
@@ -70,11 +70,31 @@ msgstr "Color del borde"
 msgid "leave blank for no border"
 msgstr "dejar en blanco para no mostrar borde"
 
-#: includes/view-admin.php:121
+#: includes/view-admin.php:122
 msgid "Font Size"
 msgstr "Tamaño de fuente"
 
-#: includes/view-admin.php:133
+#: includes/view-admin.php:132
+msgid "Text Align"
+msgstr "Alineación"
+
+#: includes/view-admin.php:134
+msgid "center"
+msgstr "centrado"
+
+#: includes/view-admin.php:135
+msgid "left"
+msgstr "izquierda"
+
+#: includes/view-admin.php:136
+msgid "right"
+msgstr "derecha"
+
+#: includes/view-admin.php:137
+msgid "justify"
+msgstr "justificado"
+
+#: includes/view-admin.php:147
 msgid "Save Options"
 msgstr "Guardar opciones"
 
