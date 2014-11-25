@@ -44,7 +44,8 @@
 	margin-right: 20px;
 }
 
-.scnb-block p input[type=text]{
+.scnb-block p input[type=text],
+.scnb-block p select{
 	width:100%;
 }
 
@@ -54,10 +55,11 @@
 }
 
 .scnb-block p.XS{
-	width:20%;
+	width:8%;
 }
 
-.scnb-block p.XS input{
+.scnb-block p.XS input,
+.scnb-block p.XS select{
 	width:50px;
 }
 
