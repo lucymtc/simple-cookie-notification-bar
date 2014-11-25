@@ -118,17 +118,31 @@
 			        		</p>
 
 			        		<p class="XS">
+
 			           			 <label for="scnb_settings[font-size]"><b><?php _e('Font Size', 'scnb_domain' ); ?></b></label><br/>
 			            		 <input type="text" 
 			            		 		id="scnb_settings[font-size]" 
 			            		 		name="scnb_settings[font-size]" 
-			            		 		value="<?php echo esc_attr( $options['font-size'] ); ?>" />px                           
+			            		 		value="<?php echo esc_attr( $options['font-size'] ); ?>" />px         
+
+			        		</p>
+
+			        		<p class="S">
+
+			        			 <label for="scnb_settings[text-align]"><b><?php _e('Text Align', 'scnb_domain' ); ?></b></label><br/>
+			            		 <select name="scnb_settings[text-align]">
+			  						<option value="center" <?php selected( $options['text-align'], 'center' ) ?>><?php _e('center', 'scnb_domain' ); ?></option>
+			  						<option value="left" <?php  selected( $options['text-align'], 'left' ) ?>><?php _e('left', 'scnb_domain' ); ?></option>
+			            		 	<option value="right" <?php selected( $options['text-align'], 'right' ) ?>><?php _e('right', 'scnb_domain' ); ?></option>
+			            		 	<option value="justify" <?php selected( $options['text-align'], 'justify' ) ?>><?php _e('justify', 'scnb_domain' ); ?></option>
+			            		 </select>		
+
 			        		</p>
 			        		
 
 							<div class="clearfix"></div>
 						</div>	<!--block-->
-					
+
 						<p class="submit">
 							<input type="submit" class="button-primary" value="<?php _e('Save Options', 'digisds_domain'); ?>" />
 						</p>

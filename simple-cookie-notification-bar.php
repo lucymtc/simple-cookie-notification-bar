@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Cookie Notification Bar
 Description: Displays a simple cookie notification bar on the bottom of the page, customizable colours and texts.
-Version: 	 1.1
+Version: 	 1.2
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -88,7 +88,8 @@ final class SCNB {
 											'message' 	 		  => __('We use our own and third party cookies. If you continue browsing we consider you accept the use of cookies.', 'scnb_domain'),
 											'border' 			  => true,
 											'border-color' 		  => '#ccc',
-											'font-size' 		  => 12
+											'font-size' 		  => 12,
+											'text-align' 		  => 'center'
 			);
 
 			add_action( 'admin_init', 			 array( 'SCNB_Admin', 'register_settings' ));
@@ -127,7 +128,7 @@ final class SCNB {
 		  	if( !defined('SCNB_PLUGIN_DIR') )  	{ define('SCNB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SCNB_PLUGIN_URL') )  	{ define('SCNB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SCNB_PLUGIN_FILE') ) 	{ define('SCNB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SCNB_PLUGIN_VERSION') )  { define('SCNB_PLUGIN_VERSION', '1.1');  } 
+			if( !defined('SCNB_PLUGIN_VERSION') )  { define('SCNB_PLUGIN_VERSION', '1.2');  } 
 			
 		  }
 
@@ -148,8 +149,17 @@ final class SCNB {
 				}
 			
 				 self::$options = $options;
+
+				 /* set new options on updates */	
+				 foreach( self::$options as $key => $value ) {
+
+				 	if( !isset( self::$options[$key] ) ) { 
+				 		self::$options[$key] = SCNB::instance()->default_options[$key]; 
+				 	}
+
+				 }
 			}
-			
+
 			return self::$options;
 			
 		 } 
