@@ -5,6 +5,8 @@
  */
 
 jQuery(document).ready(function($) {
+
+	
 	
 	if( $('#scnb-cookie-accept') ) {
 		$('#scnb-cookie-accept').on('click', function(){
@@ -26,9 +28,9 @@ jQuery(document).ready(function($) {
 		var date = new Date();
     	date.setTime( date.getTime() + ( expiration_days * 24 * 60 * 60 * 1000 ) );
     		
-    	var expires = "expires=" + date.toUTCString();
+    	var expires = 'expires=' + date.toUTCString();
 
-    	document.cookie = name + "=" + value + "; " + expires;
+    	document.cookie = name + '=' + value + '; ' + expires + '; path=/;' + ' domain=.' + scnb_vars.domain_name + ';';
     	
     	$('#scnb-cookie-bar').css('display', 'none');
 

@@ -109,7 +109,12 @@ class SCNB_Main {
 	 public function enqueue_scripts (){
 	 	
 		wp_enqueue_script( 'scnb-cookiebar-js', SCNB_PLUGIN_URL . 'includes/assets/js/script.js', array('jquery'), SCNB_PLUGIN_VERSION );
-		wp_enqueue_style('scnb-cookiebar-css', SCNB_PLUGIN_URL . 'includes/assets/css/style.css', array(), SCNB_PLUGIN_VERSION);;
+
+		wp_localize_script('scnb-cookiebar-js', 'scnb_vars', array(
+			'domain_name' => $_SERVER['HTTP_HOST']
+		));
+
+		wp_enqueue_style('scnb-cookiebar-css', SCNB_PLUGIN_URL . 'includes/assets/css/style.css', array(), SCNB_PLUGIN_VERSION);
 		
 	 }
 
