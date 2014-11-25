@@ -74,6 +74,10 @@ class SCNB_Main {
 					color: 			  <?php echo esc_attr( $options['ok-text-color']) ?>;
 				}
 
+				.scnb-text{
+					text-align: <?php echo esc_attr( $options['text-align']) ?>;
+				}
+
 				<?php if( $options['more-info-url'] != '' ){  ?>
 
 					.scnb-text{

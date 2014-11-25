@@ -1,3 +1,4 @@
+<?php do_action('scnb_before_notification'); ?>
 
 <div id="scnb-cookie-bar">
 		<div class="wrap">
@@ -13,3 +14,5 @@
 			
 		</div>
 </div>
+
+<?php do_action('scnb_after_notification'); ?>

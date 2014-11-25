@@ -33,7 +33,7 @@ class SCNB_Admin {
 	 public static function register_settings (){
 	 		
 	 	register_setting('scnb_settings_group', 'scnb_settings', 'scnb_sanitize_options' );
-		
+	 	
 	 }
 
 	 
