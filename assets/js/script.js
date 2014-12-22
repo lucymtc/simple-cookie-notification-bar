@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
 	 */
 
 	function  set_cookie (name, value, expiration_days){
-		
+
 		var date = new Date();
     	date.setTime( date.getTime() + ( expiration_days * 24 * 60 * 60 * 1000 ) );
     		
