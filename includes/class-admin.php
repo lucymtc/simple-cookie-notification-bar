@@ -72,8 +72,8 @@ class SCNB_Admin {
 			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_script( 'wp-color-picker' );
 			
-			wp_enqueue_script( 'scnb-admin-script', SCNB_PLUGIN_URL . 'includes/assets/js/admin.js', array('jquery', 'wp-color-picker'), SCNB_PLUGIN_VERSION );
-			wp_enqueue_style('scnb-admin-style', SCNB_PLUGIN_URL . 'includes/assets/css/admin.css', array(), SCNB_PLUGIN_VERSION);
+			wp_enqueue_script( 'scnb-admin-script', SCNB_PLUGIN_URL . 'assets/js/admin.js', array('jquery', 'wp-color-picker'), SCNB_PLUGIN_VERSION );
+			wp_enqueue_style('scnb-admin-style', SCNB_PLUGIN_URL . 'assets/css/admin.css', array(), SCNB_PLUGIN_VERSION);
 			
 	 }
 
