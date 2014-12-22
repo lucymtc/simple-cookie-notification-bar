@@ -61,10 +61,14 @@
 						</div>	<!--block-->
 
 						<h3><?php _e('Style', 'scnb_domain'); ?></h3>
+
+
 						
 						<div class="scnb-block">
-						
-							<p class="color-picker">
+
+
+
+			        		<p class="color-picker">
 			           			 
 			           			 <label for="scnb_settings[background-color]"><b><?php _e( 'Background color', 'scnb_domain' ); ?></b></label><br/>
 			            		 <input class="scnb-bg-color colorpicker" 
@@ -117,6 +121,22 @@
 			            		 <span class="note"><?php _e('leave blank for no border', 'scnb_domain' ); ?></span>                          
 			        		</p>
 
+			        		<div class="clearfix"></div>
+						</div>	<!--block-->
+			        		
+			        	<div class="scnb-block">	
+			        		
+			        		<p>
+			        			<input type="checkbox" 
+				            		 		id="scnb_settings[display-shadow]" 
+				            		 		name="scnb_settings[display-shadow]" 
+				            		 		value="1" <?php checked( 1, $options['display-shadow']) ?> />  
+
+				           		<label for="scnb_settings[display-shadow]"><b><?php _e('Display Shadow', 'scnb_domain' ); ?></b></label>
+				            	      
+
+			        		</p>
+
 			        		<p class="XS">
 
 			           			 <label for="scnb_settings[font-size]"><b><?php _e('Font Size', 'scnb_domain' ); ?></b></label><br/>
@@ -126,6 +146,7 @@
 			            		 		value="<?php echo esc_attr( $options['font-size'] ); ?>" />px         
 
 			        		</p>
+
 
 			        		<p class="S">
 
