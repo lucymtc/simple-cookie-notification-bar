@@ -1,7 +1,7 @@
 Simple Cookie Notification Bar
 ========================================
 Requires at least: 3.8
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 1.3
 Donate link: http://wptips.me/simple-cookie-notification-bar/
 License: GPLv2 or later
