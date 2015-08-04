@@ -11,6 +11,7 @@ jQuery(document).ready(function($) {
 	$( '.scnb-bg-color' ).wpColorPicker();
 	$( '.scnb-text-color' ).wpColorPicker();
 	$( '.scnb-border-color' ).wpColorPicker();
+	$( '.scnb-button-border-color' ).wpColorPicker();
 
 });
 

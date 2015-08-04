@@ -1,0 +1,54 @@
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// RESPONSIVE BREAK POINTS RULES
+
+@mixin fromWidth($value) {
+
+	@media only screen and (min-width: $value) {
+		@content;
+	}
+
+}
+
+
+@mixin fromToWidth($value_min, $value_max) {
+
+	@media only screen and (min-width: $value_min) and (max-width: $value_max) {
+		@content;
+	}
+
+}
+
+@mixin fromHeight($value) {
+
+	@media only screen and (min-height: $value) {
+		@content;
+	}
+
+}
+
+@mixin toWidth($value) {
+
+	@media only screen and (max-width: $value) {
+		@content;
+	}
+
+}
+
+@mixin toHeight($value) {
+
+	@media only screen and (max-height: $value) {
+		@content;
+	}
+
+}
+/********/

@@ -1,0 +1,112 @@
+/*!
+ * Simple Cookie Notification Bar
+ * Admin 
+ * @since 1.0
+ * @athor Lucy Tomás
+ */
+
+@import "mixins";
+
+.scnb{
+
+	@include clearfix();
+	width: 95%;
+
+	h2{
+		margin-bottom: 20px;
+	}
+
+	.row{
+		@include clearfix();
+		width: 100%;
+		&.col2 .column{
+			width: 45%;
+		}
+
+		&.col3 .column{
+			width: 32%;
+		}
+
+		&.col4 .column{
+			width: 25%;
+		}
+	}
+
+	.column{
+		@include clearfix();
+		
+		float: left;
+
+		&.fullwidth{
+			width: 100%;
+		}
+
+		@include toWidth(782px){
+			float: none;
+			width: 100% !important;
+		}
+
+		&.right{
+			margin-left: 20px;
+			@include toWidth(782px){
+				margin-left: 0;
+			}
+		}
+	}
+
+	.block{
+		margin-bottom: 15px;
+	}
+
+	label{
+		font-weight: bold;
+		font-size: 16px;
+		margin-bottom: 10px;
+		display: inline-block;
+	}
+
+	input[type=text],
+	textarea,
+	select{
+		-webkit-border-radius: 5px 5px 5px 5px;
+		-moz-border-radius: 5px 5px 5px 5px;
+		border-radius: 5px 5px 5px 5px;
+		padding: 5px 10px 5px 10px;
+	}
+
+	input[type=text],
+	select{
+		height: 40px;
+	}
+
+	.XL{
+		
+		textarea,
+		input[type=text],
+		select{
+			width: 100%;
+		}
+
+		textarea{
+			height: 210px;
+		}
+	}
+
+	.S{
+		
+		input[type=text],
+		select{
+			width: 150px;
+		}
+
+	}
+
+	.XS{
+		
+		input[type=text],
+		select{
+			width: 50px;
+		}
+
+	}
+}

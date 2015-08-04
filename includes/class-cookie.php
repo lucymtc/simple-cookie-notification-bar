@@ -2,7 +2,7 @@
 /** 
  * @package    Simple Cookie Notification Bar
  * @subpackage Main class
- * @author     Lucy Tomás - Digiworks
+ * @author     Lucy Tomás
  * @since 	   1.0
  */
  
@@ -39,67 +39,25 @@ class SCNB_Main {
 	 */
 	
 	private function __construct (){
+
+		require_once( SCNB_PLUGIN_DIR . 'includes/custom-style.php');
 		
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ));
 		add_action( 'wp_footer', array( $this, 'add_cookiebar') );
-		add_action( 'wp_head', array( $this, 'add_dynamic_style') );
+		add_action( 'scbn_custom_style', array( 'SCNB_Style', 'custom_sytle' ) );
 	}
 	
 	/**
 	 * add_dynamic_style
 	 * @since 1.0
+	 * @deprecated 1.4
 	 */
 
 	function add_dynamic_style(){
 
-		$options = SCNB::get_options();
+		 _deprecated_function( 'add_dynamic_style', '1.4', 'SCNB_Style::custom_sytle' );
+		 return SCNB_Style::custom_sytle( SCNB::get_options() );
 
-		?>
-			<style type='text/css'>
-
-				#scnb-cookie-bar{
-					
-					background-color: <?php echo esc_attr( $options['background-color']) ?>;
-					color: 			  <?php echo esc_attr( $options['text-color']) ?>;
-					font-size: 		  <?php echo esc_attr( $options['font-size']) ?>px;
-
-					<?php if( esc_attr( $options['border-color'] != '' ) )  { ?>
-							border-top: 3px solid <?php echo esc_attr( $options['border-color'] ) ?>;
-					<?php } ?>
-
-					<?php if( absint( $options['display-shadow'] ) == 1 ) { ?>
-
-							-webkit-box-shadow: 0 0 5px 2px #CCCCCC;
-							box-shadow: 0 0 5px 2px #CCCCCC;
-
-					<?php } ?>
-				}
-
-				.scnb-buttons a{
-					
-					background-color: <?php echo esc_attr( $options['ok-background-color']) ?>;
-					color: 			  <?php echo esc_attr( $options['ok-text-color']) ?>;
-				}
-
-				.scnb-text{
-					text-align: <?php echo esc_attr( $options['text-align']) ?>;
-				}
-
-				<?php if( $options['more-info-url'] != '' ){  ?>
-
-					.scnb-text{
-						width: 70%;
-					}
-
-					.scnb-buttons{
-						width: 	27%;
-						margin-left: 3%;
-					}
-
-				<?php  } ?>
-
-			</style>
-		<?php
 	}
 
 	/**
@@ -109,6 +67,10 @@ class SCNB_Main {
 	 public function add_cookiebar (){
 	 	
 		$options = SCNB::get_options();
+
+
+		do_action( 'scbn_custom_style', $options );
+
 		require_once( SCNB_PLUGIN_DIR . 'includes/view-cookie.php');
 		
 	 }
@@ -125,7 +87,9 @@ class SCNB_Main {
 			'domain_name' => $_SERVER['HTTP_HOST']
 		));
 
-		wp_enqueue_style('scnb-cookiebar-css', SCNB_PLUGIN_URL . 'assets/css/style.css', array(), SCNB_PLUGIN_VERSION);
+		( defined('WP_DEBUG') &&  WP_DEBUG === true ) ? $style = 'style.css' : $style = 'style.min.css';
+
+		wp_enqueue_style('scnb-cookiebar-css', SCNB_PLUGIN_URL . 'assets/css/' . $style, array(), SCNB_PLUGIN_VERSION);
 		
 	 }
 
