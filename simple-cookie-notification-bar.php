@@ -95,7 +95,7 @@ final class SCNB {
 											'button-border-color' => 1
 			);
 
-			add_action( 'admin_init', 			 array( 'SCNB_Admin', 'init' ));
+			add_action( 'admin_init', 			 array( 'SCNB_Admin', 'register_settings' ));
 			add_action( 'admin_menu', 			 array( 'SCNB_Admin', 'set_settings_link' ));
 			add_action( 'admin_enqueue_scripts', array( 'SCNB_Admin', 'enqueue_scripts' ));
 
