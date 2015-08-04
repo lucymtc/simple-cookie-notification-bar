@@ -2,7 +2,7 @@
 /**
 Plugin Name: Simple Cookie Notification Bar
 Description: Displays a simple cookie notification bar on the bottom of the page, customizable colours and texts.
-Version: 	 1.3
+Version: 	 1.4
 Author: 	 Lucy Tomás
 Author URI:  https://wordpress.org/support/profile/lucymtc
 License: 	 GPLv2
@@ -100,8 +100,8 @@ final class SCNB {
 			add_action( 'admin_enqueue_scripts', array( 'SCNB_Admin', 'enqueue_scripts' ));
 
 			add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), array( 'SCNB_Admin', 'add_action_links') );
-			
-			
+
+			register_activation_hook( __FILE__, array( 'SCNB_Admin', 'save_default_options') );
 		 }
 		 
 		
@@ -120,7 +120,6 @@ final class SCNB {
 			
 		 }
 
-		
 	     /**
 		  * constants
 		  * @since 1.0
@@ -131,7 +130,7 @@ final class SCNB {
 		  	if( !defined('SCNB_PLUGIN_DIR') )  	{ define('SCNB_PLUGIN_DIR', plugin_dir_path( __FILE__ )); }
 			if( !defined('SCNB_PLUGIN_URL') )  	{ define('SCNB_PLUGIN_URL', plugin_dir_url( __FILE__ ));  }
 			if( !defined('SCNB_PLUGIN_FILE') ) 	{ define('SCNB_PLUGIN_FILE',  __FILE__ );  }
-			if( !defined('SCNB_PLUGIN_VERSION') )  { define('SCNB_PLUGIN_VERSION', '1.3');  } 
+			if( !defined('SCNB_PLUGIN_VERSION') )  { define('SCNB_PLUGIN_VERSION', '1.4');  } 
 			
 		  }
 

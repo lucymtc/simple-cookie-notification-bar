@@ -131,6 +131,29 @@ class SCNB_Admin {
 	    $links[] = '<a href="'. $url .'">Settings</a>';
 	    return $links;
 	}
+
+	/**
+	 * save_default_options
+	 * runed on activation of the plugin
+	 * helps with comatibility with polylang and wpml
+	 * @since 1.4
+	 */
+
+	public static function save_default_options() {
+
+		$options = get_option( 'scnb_settings' );
+		
+		if( empty($options) ) {
+			$options = SCNB::get_options();
+			update_option( 'scnb_settings', $options );
+		}
+
+		return;
+
+		
+
+	}
+
  
 
 	
