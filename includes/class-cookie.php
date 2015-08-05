@@ -71,7 +71,7 @@ class SCNB_Main {
 
 		do_action( 'scbn_custom_style', $options );
 
-		require_once( SCNB_PLUGIN_DIR . 'includes/view-cookie.php');
+		require_once( SCNB_PLUGIN_DIR . 'includes/front-cookiebar.php');
 		
 	 }
 	 

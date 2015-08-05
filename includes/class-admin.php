@@ -97,7 +97,7 @@ class SCNB_Admin {
 	public static function settings_page() {
 		
 		$options = SCNB::get_options();
-		require_once( SCNB_PLUGIN_DIR . 'includes/view-admin.php' );
+		require_once( SCNB_PLUGIN_DIR . 'includes/settings-form.php' );
 	
 	}
 	
