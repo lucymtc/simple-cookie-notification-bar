@@ -3,7 +3,7 @@
 <div id="scnb-cookie-bar">
 		<div class="wrap">
 			
-			<div class="scnb-text"><?php echo esc_attr( $options['message'] ); ?></div>
+			<div class="scnb-text"><?php echo  $options['message'] ; ?></div>
 			<div class="scnb-buttons">
 
 					<?php if( $options['more-info-label'] != '' ){ ?>

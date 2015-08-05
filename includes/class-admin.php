@@ -2,7 +2,7 @@
 /** 
  * @package    Simple Cookie Notification Bar
  * @subpackage Admin class
- * @author     Lucy Tomás - Digiworks
+ * @author     Lucy Tomás
  * @since 	   1.0
  */
  
@@ -32,9 +32,50 @@ class SCNB_Admin {
 	 
 	 public static function register_settings (){
 	 		
-	 	register_setting('scnb_settings_group', 'scnb_settings', 'scnb_sanitize_options' );
+	 	register_setting('scnb_settings_group', 'scnb_settings', array( 'SCNB_Admin', 'sanitize_options') );
 	 	
 	 }
+
+	 /**
+	  * sanitize_options
+	  */
+
+	 public static function sanitize_options( $options ){
+
+	 	$allowed = array(
+				    'a' => array(
+				        'href' 	=> array(),
+				        'title' => array(),
+				        'class' => array(),
+				        'id' 	=> array(),
+					),
+				    'br' => array(),
+				    'em' => array(),
+				    'i' => array(),
+				    'strong' => array(),
+				    'b' => array()
+		);
+
+	 	$options['message'] 		= wp_kses( $options['message'], $allowed );
+	 	$options['more-info-label'] = sanitize_text_field( $options['more-info-label'] );
+	 	$options['ok-label'] 		= sanitize_text_field( $options['ok-label'] );
+	 	$options['more-info-url'] 	= esc_url_raw( $options['more-info-url'] );
+
+	 	$options['font-size'] 		= absint( $options['font-size'] );
+	 	$options['text-align'] 		= sanitize_text_field( $options['text-align'] );
+
+	 	( isset( $options['display-shadow'] ) ) ? $options['display-shadow'] = absint( $options['display-shadow'] ) : $options['display-shadow'] = 0;
+
+	 	$options['background-color']	= sanitize_text_field( $options['background-color'] );
+	 	$options['text-color']			= sanitize_text_field( $options['text-color'] );
+	 	$options['border-color']		= sanitize_text_field( $options['border-color'] );
+	 	$options['ok-background-color'] = sanitize_text_field( $options['ok-background-color'] );
+	 	$options['button-border-color'] = sanitize_text_field( $options['button-border-color'] );
+
+
+	 	return $options;
+
+	}
 
 	 
 	 /**
@@ -56,7 +97,7 @@ class SCNB_Admin {
 	public static function settings_page() {
 		
 		$options = SCNB::get_options();
-		require_once( SCNB_PLUGIN_DIR . 'includes/view-admin.php' );
+		require_once( SCNB_PLUGIN_DIR . 'includes/settings-form.php' );
 	
 	}
 	
@@ -90,42 +131,34 @@ class SCNB_Admin {
 	    $links[] = '<a href="'. $url .'">Settings</a>';
 	    return $links;
 	}
+
+	/**
+	 * save_default_options
+	 * runed on activation of the plugin
+	 * helps with comatibility with polylang and wpml
+	 * @since 1.4
+	 */
+
+	public static function save_default_options() {
+
+		$options = get_option( 'scnb_settings' );
+		
+		if( empty($options) ) {
+			$options = SCNB::get_options();
+			update_option( 'scnb_settings', $options );
+		}
+
+		return;
+
+		
+
+	}
+
  
-
-
 
 	
 }// class
 }// if
 
-function scnb_sanitize_options( $options ){
 
-		foreach( $options as $key => $value ) {
-			
-			
-			switch ($key) {
-				
-				case 'font-size' :
-					$options[$key] = absint( esc_attr( $value ) );
-				break;
-
-				case 'message' :
-					$options[$key] = sanitize_text_field( $value );
-				break;
-
-				case 'more-info-url' :
-					$options[$key] = esc_url($value);
-				break;
-
-				default:
-					$options[$key] = esc_attr($value);
-				break;
-			}
-
-		
-		}
-
-		return $options;
-
-}
 	

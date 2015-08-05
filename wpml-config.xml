@@ -1,0 +1,10 @@
+<wpml-config>
+	<admin-texts>
+		 <key name="scnb_settings">
+		 	<key name="message" />
+		 	<key name="ok-label" />
+		 	<key name="more-info-label" />
+		 	<key name="more-info-url" />
+		</key>	
+	</admin-texts>	
+</wpml-config>
