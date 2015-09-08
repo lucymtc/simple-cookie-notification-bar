@@ -42,7 +42,7 @@ class SCNB_Admin {
 
 	 public static function sanitize_options( $options ){
 
-	 	$allowed = array(
+		$allowed = apply_filters( 'scnb_message_allowed_tags',  array(
 				    'a' => array(
 				        'href' 	=> array(),
 				        'title' => array(),
@@ -54,7 +54,7 @@ class SCNB_Admin {
 				    'i' => array(),
 				    'strong' => array(),
 				    'b' => array()
-		);
+		) );
 
 	 	$options['message'] 		= wp_kses( $options['message'], $allowed );
 	 	$options['more-info-label'] = sanitize_text_field( $options['more-info-label'] );

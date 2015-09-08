@@ -7,48 +7,30 @@
 jQuery(document).ready(function($) {
 
 	
+	var scnb_cookie_accept = $( document.getElementById('scnb-cookie-accept') );
 	
-	if( $('#scnb-cookie-accept') ) {
-		$('#scnb-cookie-accept').on('click', function(){
+	if( scnb_cookie_accept ) {
+
+		var myscnb = new scnb_cookie();
+
+		scnb_cookie_accept.on('click', function(){
 				
-			set_cookie( 'scnb-cookie-terms', '1', 365 );
+			myscnb.set_cookie( 'scnb-cookie-terms', '1', 365 );
 				
 		});
 	}
 
-	check_cookie();
+	myscnb.check_cookie();
 
-	/**
-	 * set_cookie
-	 * @since 1.0
-	 */
 
-	function  set_cookie (name, value, expiration_days){
+});
 
-		var date = new Date();
-    	date.setTime( date.getTime() + ( expiration_days * 24 * 60 * 60 * 1000 ) );
-    		
-    	var expires = 'expires=' + date.toUTCString();
 
-    	document.cookie = name + '=' + value + '; ' + expires + '; path=/;' + ' domain=.' + scnb_vars.domain_name + ';';
-    	
-    	$('#scnb-cookie-bar').css('display', 'none');
+//Closure
 
-	}
+function scnb_cookie () {
 
-	/**
-	 * check_cookie
-	 * @since 1.0
-	 */
-
-	function  check_cookie (){
-		
-		if ( get_cookie( 'scnb-cookie-terms' ) == false) {
-			
-			$('#scnb-cookie-bar').css('display', 'block');
-		}
-		
-	}
+	var notification_bar = jQuery( document.getElementById('scnb-cookie-bar') );
 
 	/**
 	 * get_cookie
@@ -79,11 +61,51 @@ jQuery(document).ready(function($) {
 	    return false;
 	}
 	
+
+
+	return {
+
+		/**
+		 * set_cookie
+		 * @since 1.0
+		 */
+
+		set_cookie : function (name, value, expiration_days){
+
+			var date = new Date();
+	    	date.setTime( date.getTime() + ( expiration_days * 24 * 60 * 60 * 1000 ) );
+	    		
+	    	var expires = 'expires=' + date.toUTCString();
+
+	    	document.cookie = name + '=' + value + '; ' + expires + '; path=/;' + ' domain=.' + scnb_vars.domain_name + ';';
+	    	
+	    	notification_bar.css('display', 'none');
+
+		},
+
+		/**
+		 * check_cookie
+		 * @since 1.0
+		 */
+
+		check_cookie : function (){
+			
+			if ( get_cookie( 'scnb-cookie-terms' ) == false) {
+				
+				notification_bar.css('display', 'block');
+			}
+			
+		}
+
+	}
+
+}
+
 	
+
 	
+
 	
-	
-	
-});
+
 
 
