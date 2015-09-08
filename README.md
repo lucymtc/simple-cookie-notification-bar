@@ -2,7 +2,7 @@ Simple Cookie Notification Bar
 ========================================
 Requires at least: 3.8
 Tested up to: 4.3
-Stable tag: 1.4
+Stable tag: 1.5
 Donate link: http://wptips.me/simple-cookie-notification-bar/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,6 +24,10 @@ This lightweight plugin will display a simple notification bar on the bottom of 
 4. Go to Settings -> Simple Cookie Bar to change the default values.
 
 == Changelog ==
+
+= 1.5 =
+* Fix in js to prevent conflicts with other plugins
+* Added filter for modify html allowed tags in the notification message.
 
 = 1.4 =
 * Added option for buttons border color.
